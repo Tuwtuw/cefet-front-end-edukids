@@ -24,22 +24,46 @@
  *   - atacando: animal dá um salto e cresce, com uma borda vermelha
  */
 .com-fome {
- animation: piscando 300ms;
+ animation: piscando 500ms ease-in 0s infinite alternate;
 }
 
 @keyframes piscando{
   from {opacity: 1;}
-  to {opacity: 0.6;}
+  to {opacity: 0.4;}
 }
+
 
 .satisfeito {
-
+  border:7px green solid;
+  animation: girando 400ms linear 0s infinite normal;
 }
 
-.com-raiva {
+@keyframes girando{
+  from{transform: rotateZ(0);}
+  to {transform: rotateZ(360deg);}
+}
 
+
+
+.com-raiva {
+ animation: pulsando 300ms ease-in 0s infinite alternate;
+}
+
+@keyframes pulsando{
+  from {transform: scale(1);}
+  to {transform:scale(1.2);}
 }
 
 .atacando {
+  animation: saltando 300ms ease-out 0s 1 alternate, atacando 400ms ease-in 300ms 1 alternate;
+}
 
+@keyframes saltando{
+  from {transform: translateY(0);}
+  to {transform: translateY(-100px);}
+}
+
+@keyframes atacando{
+  from {transform: scale(1);}
+  to {transform:scale(1.3);}
 }
